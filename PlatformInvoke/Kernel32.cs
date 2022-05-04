@@ -89,6 +89,13 @@ namespace PlatformInvoke
             out uint lpExitCode
         );
 
+        [DllImport("kernel32.dll", CharSet = CharSet.Ansi, ExactSpelling = true, SetLastError = true)]
+        public static extern IntPtr GetProcAddress(
+            IntPtr hModule, 
+            string procName
+        );
+
+
         [DllImport("kernel32.dll", SetLastError = true)]
         public static extern IntPtr OpenProcess(
             ProcessAccessFlags processAccess,
