@@ -56,7 +56,11 @@ namespace PlatformInvoke
         [DllImport("user32.dll", SetLastError = true, CharSet = CharSet.Auto)]
         public static extern bool PostMessage(IntPtr hWnd, WindowMessages wMsg, IntPtr wParam, IntPtr lParam);
 
-        [DllImport("user32.dll", SetLastError = true)]
+		[return: MarshalAs(UnmanagedType.Bool)]
+		[DllImport("user32.dll", SetLastError = true, CharSet = CharSet.Auto)]
+		public static extern bool PostMessage(IntPtr hWnd, WindowMessages wMsg, int wParam, int lParam);
+
+		[DllImport("user32.dll", SetLastError = true)]
         public static extern int SendMessageA(IntPtr hWnd, WindowMessages wMsg, IntPtr wParam, IntPtr lParam);
 
         [DllImport("user32.dll", CharSet = CharSet.Unicode)]
